@@ -1,0 +1,10 @@
+ <nav class="nav">
+            <!-- Secciones -->
+            <ul>
+                <li><a href="./index.html">INICIO</a></li>
+                <li><a href="./Secciones/Sobre-nosotros.html">Sobre nosotros</a></li>
+                <li><a href="./Secciones/Productos.html">Productos</a></li>
+                <li><a href="./Secciones/Distribución.html">Distribución</a></li>
+                <li><a href="./Secciones/Calidad-y-comfort.html">Calidad y Comfort</a></li>
+            </ul>
+        </nav>

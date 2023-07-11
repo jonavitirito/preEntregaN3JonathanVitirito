@@ -1,0 +1,159 @@
+/* mobile last */
+@media (max-width: 500px) {
+
+    .header {
+        max-width: 100vw;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .jc-c {
+        justify-content: center;
+    }
+
+    .main {
+        max-width: 100%;
+
+    }
+
+    .main-sobre-nosotros {
+        display: flex;
+        flex-direction: column;
+        max-width: 100vw;
+.map-img {
+        
+        .img{
+            img{
+                max-width: 80vw;
+            }
+        }
+
+            .map {
+                width: 100vw;
+                padding-top: 30px;
+                padding-bottom: 30px;
+            }
+        }
+
+        .sn {
+            max-width: 300px;
+            text-align: center;
+        }
+
+        .formulario {
+            max-width: 300px;
+
+
+        }
+    }
+
+
+    button:focus:not(:focus-visible) {
+
+        outline: 0;
+        box-shadow: none;
+
+
+    }
+
+    /* .container-fluid{
+    
+    justify-content: flex-end !important;
+} */
+
+
+
+
+    .articulos {
+
+        text-align: center;
+        justify-content: center;
+
+        div {
+            padding: 20px;
+        }
+    }
+
+
+    .main-productos {
+        .productos {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+
+            img {
+                max-width: 320px;
+            }
+
+            p {
+                font-size: 20px;
+            }
+        }
+    }
+
+    .main-proyecto {
+        .proyectos {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+
+            img {
+                max-width: 320px;
+            }
+        }
+    }
+
+
+    .main-cyc {
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-content: center;
+
+        .colores-simil-madera {
+            align-items: center;
+            padding: 5px;
+
+            img {
+                height: 70%;
+                width: 300px;
+
+            }
+        }
+
+        .colores-pintura {
+            align-items: center;
+            padding: 5px;
+
+            img {
+                width: 300px;
+            }
+        }
+
+        .colores-microtexturado {
+            align-items: center;
+            padding: 5px;
+
+            img {
+                width: 300px;
+            }
+        }
+
+        .aluar {
+            align-items: center;
+            padding: 5px;
+
+            img {
+                width: 80%;
+            }
+        }
+
+
+    }
+
+    .footer {
+        max-width: 100vw;
+        text-align: center;
+    }
+}

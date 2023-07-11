@@ -1,0 +1,71 @@
+
+h1{
+    padding-top: 40px;
+}
+
+.main-cyc {
+    text-align: center;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 15% 85%;
+    grid-template-areas:
+        "h1 h1 h1 h1"
+        "pintura madera micro aluar"
+
+
+    ;
+    align-items: center;
+    min-height: 80vh;
+    min-width: 100%;
+    color: rgb(186, 186, 186);
+    background-image: linear-gradient(($fondo, $fondo));
+
+    img {
+    max-width: 100%;
+    height: 50%;
+
+    }
+
+    .presentacion {
+        color: rgb(217, 217, 217);
+        grid-area: h1;
+    }
+    p{
+        padding-top: 15px;
+    }
+   
+
+    .colores-pintura {
+        height: 500px;
+        background-color: rgb(42, 42, 42);
+        padding: 10px;
+        margin: 10px;
+        
+        grid-area: pintura;
+    }
+
+    .colores-simil-madera {
+        height: 500px;
+            background-color: rgb(42, 42, 42);
+            padding: 10px;
+        margin: 10px;
+        grid-area: madera;
+    }
+
+    .colores-microtexturado {
+        height: 500px;
+        background-color: rgb(42, 42, 42);
+        grid-area: micro;
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .aluar {
+        height: 500px;
+        background-color: rgb(42, 42, 42);
+        padding: 10px;
+        margin: 10px;
+
+        grid-area: aluar;
+    }
+}

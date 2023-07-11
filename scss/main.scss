@@ -1,0 +1,14 @@
+// Variables
+@import './utilidades/colors';
+// reseteo
+@import './utilidades/reseteo';
+// Paginas Webs
+@import './secciones-estilo/index';
+@import './secciones-estilo/header';
+@import './secciones-estilo/footer';
+@import './secciones-estilo/main-sobre-nosotros';
+@import './secciones-estilo/main-productos';
+@import './secciones-estilo/main-cyc';
+@import './secciones-estilo/main-tienda';
+// media query
+@import './utilidades/media-querys';

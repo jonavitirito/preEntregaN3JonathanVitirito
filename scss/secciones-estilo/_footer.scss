@@ -1,0 +1,23 @@
+.footer {
+    display: flex;
+    background-color: rgb(92, 92, 92);
+    color: rgb(168, 168, 168);
+    justify-content: center;
+    min-height: 10vh;
+    max-width: 100vw;
+    flex-wrap: wrap;
+&__ul{
+    padding: 10px;
+      display: flex;
+    justify-content: space-evenly;
+    width: 300px;
+   list-style: none;
+  
+}
+&__section{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+}
