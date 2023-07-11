@@ -18,7 +18,7 @@ const compras = document.querySelector("#compras");
 const toggleFiltrarAberturas = document.querySelector(".filterAberturas");
 const botonCarrito = document.querySelector("#botonCarrito");
 const modalContainer = document.querySelector("#modalContainer");
-const modal=document.querySelector(".modal");
+
 // eventos
 toggleFiltrar.addEventListener("click", () => {
     toggleProduct.toggleAttribute("hidden");
@@ -95,17 +95,11 @@ compras.append(content);
     toggleAgregarCarrito.className = "botonAgregarAlCarrito";
 content.append(toggleAgregarCarrito);
     toggleAgregarCarrito.addEventListener("click", () => {
-        //    const repetidor= arrayCarrito.some((repetidorProducto)=> repetidorProducto.id===producto.id);
-        //    if(repetidor){arrayCarrito.forEach((prod)=>{
-        //         if(prod.id===producto.id){
-        //             prod.cantidad++;
-        //         }
-        //     })
-
-        // }else{
+       
         arrayCarrito.push(producto);
-             agregarProducto();        
+                  
         localStorage.setItem("carrito", JSON.stringify(arrayCarrito));
+        agregarProducto();   
  })    ;     
  })         
 
@@ -124,7 +118,9 @@ const mostrarCarrito = () => {
     modalButton.className = "modalButton";
     modalButton.innerText = "x";
     modalHeader.append(modalButton);
-
+modalButton.addEventListener("click", () => {
+        modalContainer.style.display = "none";
+    });
 
 
     arrayCarrito.forEach((producto) => {
@@ -155,16 +151,14 @@ const mostrarCarrito = () => {
     })
 
 
-    modalButton.addEventListener("click", () => {
-        modalContainer.style.display = "none";
-    });
+    
 
     const total = arrayCarrito.reduce((acc, el) => acc + el.precio * el.cantidad, 0);
 
     const totalAComprar = document.createElement("div");
     totalAComprar.className = "totalContent";
     totalAComprar.innerHTML = `Total a pagar:$${total}`;
-    modal.append(totalAComprar);
+    modalContainer.append(totalAComprar);
 
 
 
@@ -184,6 +178,7 @@ const agregarProducto = () => {
         return arrayCarritoId
     });
     mostrarCarrito();
+    
 }
 
 const eliminarProducto = () => {
