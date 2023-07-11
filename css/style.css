@@ -302,6 +302,7 @@ h1 {
   .main-compras .modal {
     right: 0;
     top: 0;
+    align-items: end;
     position: fixed;
     height: 100vh;
     width: 20vw;
