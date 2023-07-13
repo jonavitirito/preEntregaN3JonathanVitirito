@@ -3,12 +3,16 @@
    min-height: 80vh;
     text-align: center;
     color: rgb(42, 42, 42);
-        .modal{right: 0;
-        top: 0;
+     
+        #modalContainer{
+          
+          align-content: space-between;
+          bottom: 20vh;
+          left: 85vw;
         align-items: end;
         position: fixed;
-        height: 100vh;
-        width: 20vw;
+        height: 80vh;
+        width: 15vw;
         background-color: #111111bd;
         flex-wrap: wrap;
         color: white;
@@ -21,9 +25,11 @@
             
           }
         .carrito{
-          flex-direction: row;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          
          width: 40%;
-
           flex-wrap: wrap;
           margin: 5px;
           img{
@@ -34,6 +40,12 @@
       }
         .modal_header{
     width: 100%;
+    height: 10%;
+    background-color: #abababbd;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    
           .modalButton{
             cursor: pointer;
           }
@@ -60,7 +72,7 @@
         
         }
        }
-    .seccionCompras{
+   .seccionCompras{
         display: flex;
        
      .product{

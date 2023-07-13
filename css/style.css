@@ -299,35 +299,43 @@ h1 {
   min-height: 80vh;
   text-align: center;
   color: #2a2a2a; }
-  .main-compras .modal {
-    right: 0;
-    top: 0;
+  .main-compras #modalContainer {
+    align-content: space-between;
+    bottom: 20vh;
+    left: 85vw;
     align-items: end;
     position: fixed;
-    height: 100vh;
-    width: 20vw;
+    height: 80vh;
+    width: 15vw;
     background-color: #111111bd;
     flex-wrap: wrap;
     color: white; }
-    .main-compras .modal .totalContent {
+    .main-compras #modalContainer .totalContent {
       display: flex;
       flex-direction: row;
       align-items: flex-end;
       margin: 20px; }
-    .main-compras .modal .carrito {
-      flex-direction: row;
+    .main-compras #modalContainer .carrito {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       width: 40%;
       flex-wrap: wrap;
       margin: 5px; }
-      .main-compras .modal .carrito img {
+      .main-compras #modalContainer .carrito img {
         width: 50%; }
-    .main-compras .modal .modal_header {
+    .main-compras #modalContainer .modal_header {
       width: 100%;
+      height: 10%;
+      background-color: #abababbd;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
       display: flex;
       justify-content: space-around; }
-      .main-compras .modal .modal_header .modalButton {
+      .main-compras #modalContainer .modal_header .modalButton {
         cursor: pointer; }
-    .main-compras .modal .toggleBorrarCarrito {
+    .main-compras #modalContainer .toggleBorrarCarrito {
       font-size: 20px;
       margin: 20px;
       margin-bottom: 10px;
@@ -338,7 +346,7 @@ h1 {
       padding: 5px;
       color: white;
       transition: 0.4s ease-out; }
-      .main-compras .modal .toggleBorrarCarrito:hover {
+      .main-compras #modalContainer .toggleBorrarCarrito:hover {
         transition: 0.4s;
         background-color: white;
         color: gray; }

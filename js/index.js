@@ -1,6 +1,12 @@
 // DOM
 
-const toggleFiltrarPuertas = document.querySelector(".filtroPuertas")
+const toggleFiltrarPuertas = document.querySelector("#filtroPuertas");
+const toggleFiltrarVentanasCorredizas = document.querySelector("#filtroVentanasCorredizas");
+const toggleFiltrarVentanasProyectantes=document.querySelector("#filtroVentanasProyectantes");
+const toggleFiltrarPañoFijo=document.querySelector("#filtroPañoFijo");
+const toggleBlanco=document.querySelector("#blanco");
+const toggleNegro=document.querySelector("#negro");
+const toggleSimilMadera=document.querySelector("#similMadera");
 const toggleFiltrar =
     document.querySelector(".filter-product");
 const toggleProduct =
@@ -54,12 +60,12 @@ if (arrayCarrito === null) {
     arrayCarrito = []
 }
 
-const arrayProductos = [];
-const puerta1 = new producto(1, "Puerta de rebatir", 105178.00, "Negro mate", "https://http2.mlstatic.com/D_NQ_NP_919280-MLA49568721252_042022-O.webp", 1);
+let arrayProductos = [];
+const puerta1 = new producto(1,"Puerta de rebatir", 105178.00, "Negro mate", "https://http2.mlstatic.com/D_NQ_NP_919280-MLA49568721252_042022-O.webp", 1);
 arrayProductos.push(puerta1);
-const puerta2 = new producto(2, "Puerta de rebatir", 95564.00, "Blanco brillante", "https://http2.mlstatic.com/D_NQ_NP_910890-MLA54434412001_032023-O.webp", 1);
+const puerta2 = new producto(2,"Puerta de rebatir", 95564.00, "Blanco brillante", "https://http2.mlstatic.com/D_NQ_NP_910890-MLA54434412001_032023-O.webp", 1);
 arrayProductos.push(puerta2);
-const puerta3 = new producto(3, "Puerta de rebatir", 125490.00, "Simil madera", "https://http2.mlstatic.com/D_NQ_NP_932929-MLA44161032932_112020-O.webp", 1);
+const puerta3 = new producto(3,"Puerta de rebatir", 125490.00, "Simil madera", "https://http2.mlstatic.com/D_NQ_NP_932929-MLA44161032932_112020-O.webp", 1);
 arrayProductos.push(puerta3);
 const ventanaCorrediza1 = new producto(4, "Ventana corrediza vidrio simple", 52547.00, "Negro mate", "https://cdn.homedepot.com.mx/productos/147820/147820-a3.jpg", 1);
 arrayProductos.push(ventanaCorrediza1);
@@ -71,7 +77,7 @@ const ventanaProyectante1 = new producto(7, "Ventana proyectante", 53792, "Negro
 arrayProductos.push(ventanaProyectante1);
 const ventanaProyectante2 = new producto(8, "Ventana proyectante", 42683.00, "Blanco brillante", "https://http2.mlstatic.com/D_NQ_NP_861157-MLA50290801284_062022-O.webp", 1);
 arrayProductos.push(ventanaProyectante2);
-const ventanaProyectante3 = new producto(9, "Ventana proyectante", 86982, "Simil Madera", "https://http2.mlstatic.com/D_NQ_NP_905934-MLA69911575505_062023-O.webp", 1);
+const ventanaProyectante3 = new producto(9, "Ventana proyectante", 86982, "Simil madera", "https://http2.mlstatic.com/D_NQ_NP_905934-MLA69911575505_062023-O.webp", 1);
 arrayProductos.push(ventanaProyectante3);
 const ventanaPañoFijo1 = new producto(10, "Ventana paño fijo", 47620.00, "Negro mate", "https://http2.mlstatic.com/D_830751-MLA47694753168_092021-O.jpg", 1);
 arrayProductos.push(ventanaPañoFijo1);
@@ -80,6 +86,59 @@ arrayProductos.push(ventanaPañoFijo2);
 const ventanaPañoFijo3 = new producto(12, "Ventana paño fijo", 58300.00, "Simil madera", "https://teknal.casa/wp-content/uploads/2018/10/simil-madera.jpg", 1);
 arrayProductos.push(ventanaPañoFijo3);
 
+toggleFiltrarPuertas.addEventListener("click", ()=>{
+    compras.innerHTML="";
+  arrayProductos= arrayProductos.filter((product)=>product.tipoDeProducto==="Puerta de rebatir");
+  return mostrarArticulos(arrayProductos);
+
+});
+toggleFiltrarVentanasCorredizas.addEventListener("click", ()=>{
+    compras.innerHTML="";
+  arrayProductos= arrayProductos.filter((product)=>product.tipoDeProducto==="Ventana corrediza vidrio simple");
+  return mostrarArticulos(arrayProductos);
+
+});
+toggleFiltrarVentanasProyectantes.addEventListener("click", ()=>{
+    compras.innerHTML="";
+  arrayProductos= arrayProductos.filter((product)=>product.tipoDeProducto==="Ventana proyectante");
+  return mostrarArticulos(arrayProductos);
+
+})
+toggleFiltrarPañoFijo.addEventListener("click", ()=>{
+    compras.innerHTML="";
+  arrayProductos= arrayProductos.filter((product)=>product.tipoDeProducto==="Ventana paño fijo");
+  return mostrarArticulos(arrayProductos);
+
+});
+toggleBlanco.addEventListener("click", ()=>{
+    compras.innerHTML="";
+   const productosFiltrados=(e)=>{arrayProductos=arrayProductos.filter((el)=>el.color==="Blanco brillante");
+return mostrarArticulos(e);
+   }
+productosFiltrados(producto);
+});
+toggleNegro.addEventListener("click", ()=>{
+    compras.innerHTML="";
+   const productosFiltrados=(e)=>{arrayProductos=arrayProductos.filter((el)=>el.color==="Negro mate");
+return mostrarArticulos(e);
+   }
+productosFiltrados(producto);
+});
+toggleSimilMadera.addEventListener("click", ()=>{
+    compras.innerHTML="";
+   const productosFiltrados=(e)=>{arrayProductos=arrayProductos.filter((el)=>el.color==="Simil madera");
+return mostrarArticulos(e);
+   }
+productosFiltrados(producto);
+});
+ 
+    
+
+
+
+
+const mostrarArticulos=()=>{
+    
 arrayProductos.forEach((producto) => {
     const content = document.createElement("div");
     content.className = "content";
@@ -90,6 +149,7 @@ arrayProductos.forEach((producto) => {
     `;
 compras.append(content);
 
+
     let toggleAgregarCarrito = document.createElement("button");
     toggleAgregarCarrito.innerText = "Agregar al Carrito";
     toggleAgregarCarrito.className = "botonAgregarAlCarrito";
@@ -99,9 +159,14 @@ content.append(toggleAgregarCarrito);
         arrayCarrito.push(producto);
                   
         localStorage.setItem("carrito", JSON.stringify(arrayCarrito));
-        agregarProducto();   
- })    ;     
- })         
+        agregarProducto();
+
+ });  
+
+ })  ;    
+}
+
+ mostrarArticulos();
 
 const mostrarCarrito = () => {
 
@@ -144,7 +209,7 @@ modalButton.addEventListener("click", () => {
         carritoContent.appendChild(borrarCarrito);
 
         borrarCarrito.addEventListener("click", () => {
-            eliminarProducto();
+            eliminarProducto(producto.id);
         mostrarCarrito();
         });
 
@@ -181,13 +246,13 @@ const agregarProducto = () => {
     
 }
 
-const eliminarProducto = () => {
-    const foundId = arrayCarrito.find((el) => el.id);
+const eliminarProducto = (id) => {
+    const foundId = arrayCarrito.find((el) => el.id==id);
     arrayCarrito = arrayCarrito.filter((arrayCarritoId) => {
         return arrayCarritoId !== foundId
 
     });
-
+localStorage.setItem("carrito", JSON.stringify(arrayCarrito));
 
 }
 
