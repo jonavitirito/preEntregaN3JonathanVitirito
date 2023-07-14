@@ -299,6 +299,8 @@ h1 {
   min-height: 80vh;
   text-align: center;
   color: #2a2a2a; }
+  .main-compras h1 {
+    cursor: pointer; }
   .main-compras #modalContainer {
     align-content: space-between;
     bottom: 20vh;
@@ -351,61 +353,14 @@ h1 {
         background-color: white;
         color: gray; }
   .main-compras .seccionCompras {
-    display: flex; }
-    .main-compras .seccionCompras .product {
-      height: 100%;
-      display: flex;
-      justify-content: flex-end;
-      flex-wrap: wrap; }
-    .main-compras .seccionCompras #compras {
-      display: flex;
-      justify-content: space-evenly;
-      flex-wrap: wrap;
-      width: 90vw; }
-    .main-compras .seccionCompras .content {
-      width: 30%;
-      background-color: white;
-      height: min-content;
-      margin: 20px;
-      padding: 5px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      border-radius: 5px; }
-      .main-compras .seccionCompras .content img {
-        width: max-content; }
-      .main-compras .seccionCompras .content .tituloProducto {
-        width: 100%;
-        border-bottom: solid 1px gray;
-        border-top: solid 1px gray; }
-      .main-compras .seccionCompras .content .price {
-        text-align: center;
-        margin: 0;
-        padding: 0;
-        font-size: 30px;
-        font-family: Arial, Helvetica, sans-serif; }
-      .main-compras .seccionCompras .content .botonAgregarAlCarrito {
-        font-size: 20px;
-        width: 50%;
-        height: 40%;
-        text-align: center;
-        background-color: #505050;
-        border: solid gray 2px;
-        border-radius: 5px;
-        padding: 5px;
-        color: white;
-        transition: 0.4s ease-out; }
-        .main-compras .seccionCompras .content .botonAgregarAlCarrito:hover {
-          transition: 0.4s;
-          background-color: white;
-          color: gray; }
-      .main-compras .seccionCompras .content img {
-        height: 55vh; }
+    display: flex;
+    flex-direction: row; }
     .main-compras .seccionCompras .container {
-      width: 10vw;
+      max-width: 10%;
       display: flex;
       flex-direction: column; }
+      .main-compras .seccionCompras .container h4 {
+        cursor: pointer; }
       .main-compras .seccionCompras .container .toggleProductos {
         display: flex;
         flex-direction: column; }
@@ -435,6 +390,56 @@ h1 {
       cursor: pointer;
       display: flex;
       justify-content: flex-start; }
+
+.product {
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap; }
+
+#compras {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 85vw; }
+  #compras .content {
+    width: 23%;
+    background-color: white;
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px; }
+    #compras .content img {
+      height: 80%;
+      width: 60%;
+      padding: 20px; }
+    #compras .content .tituloProducto {
+      width: 100%;
+      border-bottom: solid 1px gray;
+      border-top: solid 1px gray; }
+    #compras .content .price {
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      font-size: 30px;
+      font-family: Arial, Helvetica, sans-serif; }
+    #compras .content .botonAgregarAlCarrito {
+      font-size: 20px;
+      width: 50%;
+      text-align: center;
+      background-color: #505050;
+      border: solid gray 2px;
+      border-radius: 5px;
+      padding: 5px;
+      color: white;
+      transition: 0.4s ease-out; }
+      #compras .content .botonAgregarAlCarrito:hover {
+        transition: 0.4s;
+        background-color: white;
+        color: gray; }
 
 /* mobile last */
 @media (max-width: 500px) {

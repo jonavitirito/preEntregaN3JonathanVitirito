@@ -1,4 +1,7 @@
 .main-compras{
+  h1{
+    cursor: pointer;
+  }
     background-color: rgb(194, 194, 181);
    min-height: 80vh;
     text-align: center;
@@ -17,6 +20,7 @@
         flex-wrap: wrap;
         color: white;
       
+
         .totalContent{
           display: flex;
           flex-direction: row;
@@ -74,75 +78,13 @@
        }
    .seccionCompras{
         display: flex;
-       
-     .product{
-        height: 100%;
-        display: flex;
-        justify-content: flex-end;
-        flex-wrap: wrap;
-        
-     }
-       #compras{
-        display: flex;
-        justify-content: space-evenly;
-        flex-wrap: wrap;
-        width: 90vw;
-        
-       }                     
-     .content{
-        width: 30%;
-        background-color: white;
-        height: min-content;
-        margin: 20px;
-        padding: 5px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        border-radius: 5px;
-        img{ width: max-content;
-        }
-        .tituloProducto{
-            width: 100%;
-            border-bottom: solid 1px gray;
-            border-top: solid 1px gray;
-            
-        }
-        .price{
-            text-align: center;
-            margin: 0;
-            padding: 0;
-           font-size: 30px;
-           font-family:Arial, Helvetica, sans-serif;
+        flex-direction: row;
+       .container{
 
+        h4{
+          cursor: pointer;
         }
-        
-      .botonAgregarAlCarrito{
-        font-size: 20px;
-        width: 50%;
-        height: 40%;
-        text-align: center;
-        background-color: rgb(80, 80, 80);
-        border: solid gray 2px;
-        border-radius: 5px;
-        padding: 5px;
-        color: white;
-        transition: 0.4s ease-out;
-        &:hover {
-            transition: 0.4s;
-            background-color: white;
-            color: gray;
-            
-        }
-      }
-        
-       img{
-        height: 55vh;
-       }
-       
-     }
-.container{
-  width: 10vw;
+  max-width: 10% ;
   display: flex;
   flex-direction: column;
   .toggleProductos{
@@ -194,3 +136,75 @@
        
     }
 }
+
+     .product{
+        height: 100%;
+        display: flex;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        
+     }
+       #compras{
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        width: 85vw;
+
+        
+                 
+     
+       
+
+.content{
+  width: 23%;
+        background-color: white;
+        margin: 20px;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 5px;
+        img{
+          height: 80%;
+          width: 60%;
+          padding: 20px
+       }
+        .tituloProducto{
+          
+            width: 100%;
+            border-bottom: solid 1px gray;
+            border-top: solid 1px gray;
+            
+        }
+        .price{
+            text-align: center;
+            margin: 0;
+            padding: 0;
+           font-size: 30px;
+           font-family:Arial, Helvetica, sans-serif;
+
+        }
+        
+      .botonAgregarAlCarrito{
+        font-size: 20px;
+        width: 50%;
+        text-align: center;
+        background-color: rgb(80, 80, 80);
+        border: solid gray 2px;
+        border-radius: 5px;
+        padding: 5px;
+        color: white;
+        transition: 0.4s ease-out;
+        &:hover {
+            transition: 0.4s;
+            background-color: white;
+            color: gray;
+            
+        }
+      }
+        
+       
+
+      }
+       }           
