@@ -1,210 +1,481 @@
-.main-compras{
-  h1{
+
+body{
+  .compra-exitosa{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #111111bd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  &-container {
+    width: 90%;
+    max-width: 600px;
+    max-height: 90%;
+    background-color: rgb(238, 238, 198);
+    border-radius: 6px;
+    padding: 3em 2.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    place-items: center;
+    margin: auto;
+    .cerrar-modal{
+      
+      padding: 7px;
+      width: max-content;
+      height: min-content;
+      color: white;
+      background-color: rgb(80, 80, 80);
+      text-align: center;
+      border-radius: 5px;
+      border:solid gray 2px;
+      transition: 0.4s ease-out;
+
+
+      &:hover {
+          transition: 0.4s;
+          background-color: white;
+          border-color: black;
+          color: black;
+          
+      }
+      
+    }
+  }
+}
+.main-compras {
+  h1 {
     cursor: pointer;
   }
-    background-color: rgb(194, 194, 181);
-   min-height: 80vh;
-    text-align: center;
-    color: rgb(42, 42, 42);
-     
-        #modalContainer{
-          
-          align-content: space-between;
-          bottom: 20vh;
-          left: 85vw;
-        align-items: end;
-        position: fixed;
-        height: 80vh;
-        width: 15vw;
-        background-color: #111111bd;
-        flex-wrap: wrap;
-        color: white;
+  .datos-incompletos{
+    position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #111111bd;
+  display: flex;
+  .datos-incompletos-container{
+    width: 90%;
+    max-width: 600px;
+    max-height: 90%;
+    background-color: rgb(238, 238, 198);
+    border-radius: 6px;
+    padding: 3em 2.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    place-items: center;
+    margin: auto;
+    .cerrar-ventana{ width: 120px;
+      height: 35px;
+      color: gray;
+      background-color: rgb(80, 80, 80);
+      text-align: center;
+      border-radius: 5px;
+      border:solid gray 2px;
+      transition: 0.4s ease-out;
       
 
-        .totalContent{
-          display: flex;
-          flex-direction: row;
-          align-items: flex-end;
-            margin: 20px;
+      &:hover {
+          transition: 0.4s;
+          background-color: white;
+          border-color: black;
+          color: black;
+          
+      }
+
+    }
+  }
+  }
+
+  .mainCompletarDatos {
+    display: flex;
+    justify-content: space-around;
+
+    .completar-datos {
+
+      border: solid 3px gray;
+      border-radius: 10px;
+      .total{
+        padding: 10px;
+        border-top:solid 1px gray;
+        border-bottom: solid 1px gray;
+      }
+      .concretar-compra {
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+                
+
+        .cuotas-opciones {
+          
+          cursor: pointer;
+          text-align: center;
+                background-color: rgb(80, 80, 80);
+                color: gray;
+                border: solid gray 2px;
+                border-radius: 5px;
+                margin: 10px;
+                height: 30px;
+                width: 300px;
+                transition: 0.4s ease-out;
+                &:focus:hover {
+                    transition: 0.5s;
+                    color: black;
+                    border-color: black;
+                    background-color: white;
+            }
+                
+                
+                
             
+        }  
+         input {
+          color: black;
+          text-align: center;
+          background-color: rgb(80, 80, 80);
+          border: solid gray 2px;
+          border-radius: 5px;
+          margin: 10px;
+          height: 30px;
+          width: 300px;
+          transition: 0.4s ease-out;
+
+          &:focus {
+            transition: 0.5s;
+            color: black;
+            background-color: white;
+
           }
-        .carrito{
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          
-         width: 40%;
-          flex-wrap: wrap;
-          margin: 5px;
-          img{
-            width: 50%;
-          
-          
+        }
+
+        .boton-concretar-compra{
+                  width: 100px;
+                height: 35px;
+                color: gray;
+                background-color: rgb(80, 80, 80);
+                text-align: center;
+                border-radius: 5px;
+                border:solid gray 2px;
+                transition: 0.4s ease-out;
+
+
+                &:hover {
+                    transition: 0.4s;
+                    background-color: white;
+                    border-color: black;
+                    color: black;
+                    
+                }
+
+        
+
+
+
         }
       }
-        .modal_header{
-    width: 100%;
-    height: 10%;
-    background-color: #abababbd;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    
-          .modalButton{
-            cursor: pointer;
-          }
-          display: flex;
-          justify-content: space-around;
-        }
-        .toggleBorrarCarrito{
-            font-size: 20px;
-            margin: 20px;
-            margin-bottom: 10px;
+    }
+    .carritoContent{
+      img{
+        width: 30%;
+      }
+      margin: 10px;
+      flex-wrap: wrap;
+      padding: 20px;
+      color: white;
+      border-radius: 5px;
+      background-color: rgb(70, 70, 70);
+    }
+  }
+
+  background-color: rgb(194, 194, 181);
+  min-height: 80vh;
+  text-align: center;
+  color: rgb(42, 42, 42);
+
+  #modalContainer {
+
+    align-content: space-between;
+    bottom: 20vh;
+    left: 50vw;
+    align-items: end;
+    position: fixed;
+    height: 80vh;
+    width: 50vw;
+    background-color: #111111bd;
+    flex-wrap: wrap;
+    color: white;
+
+
+
+
+    .footerModal {
+      display: flex;
+      justify-content: space-around;
+      align-items: baseline;
+      width: 100%;
+
+      .finalizar-compra {
+        margin-bottom: 10px;
         text-align: center;
-        background-color: rgb(80, 80, 80);
+        background-color: #505050;
         border: solid gray 2px;
         border-radius: 5px;
         padding: 5px;
         color: white;
         transition: 0.4s ease-out;
+
+
         &:hover {
-            transition: 0.4s;
-            background-color: white;
-            color: gray;
-            
+          transition: 0.4s;
+          background-color: white;
+          color: gray;
         }
-        
-        }
-       }
-   .seccionCompras{
-        display: flex;
-        flex-direction: row;
-       .container{
+      }
 
-        h4{
-          cursor: pointer;
-        }
-  max-width: 10% ;
-  display: flex;
-  flex-direction: column;
-  .toggleProductos{
-    display: flex;
-    flex-direction: column;
+      .totalContent {
+        margin: 10px;
+      }
 
-    .aberturasContent{
-        margin-left: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-   
+    }
 
-   
-    
+    .carrito {
 
-}
-.contentColores{
-    margin-left: 30px;
-    display: flex;
-    flex-direction: column;
-     align-items: flex-start;
-}
+      border: solid 1px rgb(203, 203, 203);
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+      height: 20%;
+      width: 100%;
+
+      flex-wrap: wrap;
+      margin: 5px;
+
+      .sumar {
+        cursor: pointer;
+
+      }
+
+      .restar {
+        cursor: pointer;
+      }
+
+      h3 {
+        font-size: 15px;
+      }
+
+      img {
+        margin: 5px;
+       height: 80%;
+
+
+      }
+    }
+
+    .modal_header {
+      width: 100%;
+      height: 10%;
+      background-color: #abababbd;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+
+      .modalButton {
+        cursor: pointer;
+      }
+
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .toggleBorrarCarrito {
+      width: 20%;
+      font-size: 20px;
+      margin: 20px;
+      margin-bottom: 10px;
+      text-align: center;
+      background-color: rgb(80, 80, 80);
+      border: solid gray 2px;
+      border-radius: 5px;
+      padding: 5px;
+      color: white;
+      transition: 0.4s ease-out;
+
+      &:hover {
+        transition: 0.4s;
+        background-color: white;
+        color: gray;
+
+      }
+
+    }
   }
 }
-.filter-product{
-   
-    cursor:pointer;
-    display: flex;
-    justify-content: flex-start;
-    margin: 0;
-    padding: 0;
-}
-.toggleAberturas{
-    cursor:pointer;
-    display: flex;
-    justify-content: flex-start;   
-}
 
-.toggleColores{
-    margin-left: 10px;
-    padding: 10px;
-    
-    cursor:pointer;
-    display: flex;
-    justify-content: flex-start;
-}
+.seccionCompras {
+  display: flex;
+  flex-direction: row;
 
-       
+  .container {
+
+
+
+    border-right: solid 1px gray;
+
+    h4 {
+      cursor: pointer;
     }
+
+    height: min-content;
+    max-width: 10%;
+    display: flex;
+    flex-direction: column;
+    // .toggleProductos{
+    //   display: flex;
+    //   flex-direction: column;
+
+    .aberturasContent {
+      margin-left: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+
+
+
+
+    }
+
+    .contentColores {
+      margin-left: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
 }
 
-     .product{
-        height: 100%;
-        display: flex;
-        justify-content: flex-end;
-        flex-wrap: wrap;
-        
-     }
-       #compras{
-        display: flex;
-        justify-content: space-evenly;
-        flex-wrap: wrap;
-        width: 85vw;
+#filterProduct {
 
-        
-                 
-     
-       
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+  width: 70%;
+  height: min-content;
+  margin: 0;
+  padding: 0;
+}
 
-.content{
-  width: 23%;
+.toggleAberturas {
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.toggleColores {
+  margin-left: 10px;
+  padding: 10px;
+
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+}
+
+h3 i {
+
+
+  .arrow {
+    &::after {
+      scale: 5;
+      transition: .3s;
+    }
+  }
+}
+
+
+.product {
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+
+}
+
+#compras {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 85vw;
+
+
+
+
+
+
+  .content {
+    width: 23%;
+    background-color: white;
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+
+    img {
+      height: 80%;
+      width: 60%;
+      padding: 20px
+    }
+
+    .tituloProducto {
+
+      width: 100%;
+      border-bottom: solid 1px gray;
+      border-top: solid 1px gray;
+
+    }
+
+    .price {
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      font-size: 30px;
+      font-family: Arial, Helvetica, sans-serif;
+
+    }
+
+    .botonAgregarAlCarrito {
+      font-size: 20px;
+      width: 50%;
+      text-align: center;
+      background-color: rgb(80, 80, 80);
+      border: solid gray 2px;
+      border-radius: 5px;
+      padding: 5px;
+      color: white;
+      transition: 0.4s ease-out;
+
+      &:hover {
+        transition: 0.4s;
         background-color: white;
-        margin: 20px;
-        padding: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-direction: column;
-        border-radius: 5px;
-        img{
-          height: 80%;
-          width: 60%;
-          padding: 20px
-       }
-        .tituloProducto{
-          
-            width: 100%;
-            border-bottom: solid 1px gray;
-            border-top: solid 1px gray;
-            
-        }
-        .price{
-            text-align: center;
-            margin: 0;
-            padding: 0;
-           font-size: 30px;
-           font-family:Arial, Helvetica, sans-serif;
-
-        }
-        
-      .botonAgregarAlCarrito{
-        font-size: 20px;
-        width: 50%;
-        text-align: center;
-        background-color: rgb(80, 80, 80);
-        border: solid gray 2px;
-        border-radius: 5px;
-        padding: 5px;
-        color: white;
-        transition: 0.4s ease-out;
-        &:hover {
-            transition: 0.4s;
-            background-color: white;
-            color: gray;
-            
-        }
-      }
-        
-       
+        color: gray;
 
       }
-       }           
+    }
+
+
+
+  }
+
+}
+
+}

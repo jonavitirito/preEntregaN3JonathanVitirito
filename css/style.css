@@ -88,8 +88,8 @@
   display: flex;
   justify-content: flex-end;
   border: 0;
-  background-color: #c2c2b5;
-  margin: 15px; }
+  margin: 15px;
+  background-color: #d4d4d4; }
 
 .footer {
   display: flex;
@@ -294,39 +294,204 @@ h1 {
     margin: 10px;
     grid-area: aluar; }
 
-.main-compras {
+body .compra-exitosa {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #111111bd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; }
+  body .compra-exitosa-container {
+    width: 90%;
+    max-width: 600px;
+    max-height: 90%;
+    background-color: #eeeec6;
+    border-radius: 6px;
+    padding: 3em 2.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    place-items: center;
+    margin: auto; }
+    body .compra-exitosa-container .cerrar-modal {
+      padding: 7px;
+      width: max-content;
+      height: min-content;
+      color: white;
+      background-color: #505050;
+      text-align: center;
+      border-radius: 5px;
+      border: solid gray 2px;
+      transition: 0.4s ease-out; }
+      body .compra-exitosa-container .cerrar-modal:hover {
+        transition: 0.4s;
+        background-color: white;
+        border-color: black;
+        color: black; }
+
+body .main-compras {
   background-color: #c2c2b5;
   min-height: 80vh;
   text-align: center;
   color: #2a2a2a; }
-  .main-compras h1 {
+  body .main-compras h1 {
     cursor: pointer; }
-  .main-compras #modalContainer {
+  body .main-compras .datos-incompletos {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: #111111bd;
+    display: flex; }
+    body .main-compras .datos-incompletos .datos-incompletos-container {
+      width: 90%;
+      max-width: 600px;
+      max-height: 90%;
+      background-color: #eeeec6;
+      border-radius: 6px;
+      padding: 3em 2.5em;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      place-items: center;
+      margin: auto; }
+      body .main-compras .datos-incompletos .datos-incompletos-container .cerrar-ventana {
+        width: 120px;
+        height: 35px;
+        color: gray;
+        background-color: #505050;
+        text-align: center;
+        border-radius: 5px;
+        border: solid gray 2px;
+        transition: 0.4s ease-out; }
+        body .main-compras .datos-incompletos .datos-incompletos-container .cerrar-ventana:hover {
+          transition: 0.4s;
+          background-color: white;
+          border-color: black;
+          color: black; }
+  body .main-compras .mainCompletarDatos {
+    display: flex;
+    justify-content: space-around; }
+    body .main-compras .mainCompletarDatos .completar-datos {
+      border: solid 3px gray;
+      border-radius: 10px; }
+      body .main-compras .mainCompletarDatos .completar-datos .total {
+        padding: 10px;
+        border-top: solid 1px gray;
+        border-bottom: solid 1px gray; }
+      body .main-compras .mainCompletarDatos .completar-datos .concretar-compra {
+        display: flex;
+        flex-direction: column;
+        align-items: center; }
+        body .main-compras .mainCompletarDatos .completar-datos .concretar-compra .cuotas-opciones {
+          cursor: pointer;
+          text-align: center;
+          background-color: #505050;
+          color: gray;
+          border: solid gray 2px;
+          border-radius: 5px;
+          margin: 10px;
+          height: 30px;
+          width: 300px;
+          transition: 0.4s ease-out; }
+          body .main-compras .mainCompletarDatos .completar-datos .concretar-compra .cuotas-opciones:focus:hover {
+            transition: 0.5s;
+            color: black;
+            border-color: black;
+            background-color: white; }
+        body .main-compras .mainCompletarDatos .completar-datos .concretar-compra input {
+          color: black;
+          text-align: center;
+          background-color: #505050;
+          border: solid gray 2px;
+          border-radius: 5px;
+          margin: 10px;
+          height: 30px;
+          width: 300px;
+          transition: 0.4s ease-out; }
+          body .main-compras .mainCompletarDatos .completar-datos .concretar-compra input:focus {
+            transition: 0.5s;
+            color: black;
+            background-color: white; }
+        body .main-compras .mainCompletarDatos .completar-datos .concretar-compra .boton-concretar-compra {
+          width: 100px;
+          height: 35px;
+          color: gray;
+          background-color: #505050;
+          text-align: center;
+          border-radius: 5px;
+          border: solid gray 2px;
+          transition: 0.4s ease-out; }
+          body .main-compras .mainCompletarDatos .completar-datos .concretar-compra .boton-concretar-compra:hover {
+            transition: 0.4s;
+            background-color: white;
+            border-color: black;
+            color: black; }
+    body .main-compras .mainCompletarDatos .carritoContent {
+      margin: 10px;
+      flex-wrap: wrap;
+      padding: 20px;
+      color: white;
+      border-radius: 5px;
+      background-color: #464646; }
+      body .main-compras .mainCompletarDatos .carritoContent img {
+        width: 30%; }
+  body .main-compras #modalContainer {
     align-content: space-between;
     bottom: 20vh;
-    left: 85vw;
+    left: 50vw;
     align-items: end;
     position: fixed;
     height: 80vh;
-    width: 15vw;
+    width: 50vw;
     background-color: #111111bd;
     flex-wrap: wrap;
     color: white; }
-    .main-compras #modalContainer .totalContent {
+    body .main-compras #modalContainer .footerModal {
+      display: flex;
+      justify-content: space-around;
+      align-items: baseline;
+      width: 100%; }
+      body .main-compras #modalContainer .footerModal .finalizar-compra {
+        margin-bottom: 10px;
+        text-align: center;
+        background-color: #505050;
+        border: solid gray 2px;
+        border-radius: 5px;
+        padding: 5px;
+        color: white;
+        transition: 0.4s ease-out; }
+        body .main-compras #modalContainer .footerModal .finalizar-compra:hover {
+          transition: 0.4s;
+          background-color: white;
+          color: gray; }
+      body .main-compras #modalContainer .footerModal .totalContent {
+        margin: 10px; }
+    body .main-compras #modalContainer .carrito {
+      border: solid 1px #cbcbcb;
       display: flex;
       flex-direction: row;
-      align-items: flex-end;
-      margin: 20px; }
-    .main-compras #modalContainer .carrito {
-      display: flex;
-      flex-direction: column;
+      justify-content: space-evenly;
       align-items: center;
-      width: 40%;
+      height: 20%;
+      width: 100%;
       flex-wrap: wrap;
       margin: 5px; }
-      .main-compras #modalContainer .carrito img {
-        width: 50%; }
-    .main-compras #modalContainer .modal_header {
+      body .main-compras #modalContainer .carrito .sumar {
+        cursor: pointer; }
+      body .main-compras #modalContainer .carrito .restar {
+        cursor: pointer; }
+      body .main-compras #modalContainer .carrito h3 {
+        font-size: 15px; }
+      body .main-compras #modalContainer .carrito img {
+        margin: 5px;
+        height: 80%; }
+    body .main-compras #modalContainer .modal_header {
       width: 100%;
       height: 10%;
       background-color: #abababbd;
@@ -335,9 +500,10 @@ h1 {
       justify-content: space-between;
       display: flex;
       justify-content: space-around; }
-      .main-compras #modalContainer .modal_header .modalButton {
+      body .main-compras #modalContainer .modal_header .modalButton {
         cursor: pointer; }
-    .main-compras #modalContainer .toggleBorrarCarrito {
+    body .main-compras #modalContainer .toggleBorrarCarrito {
+      width: 20%;
       font-size: 20px;
       margin: 20px;
       margin-bottom: 10px;
@@ -348,61 +514,70 @@ h1 {
       padding: 5px;
       color: white;
       transition: 0.4s ease-out; }
-      .main-compras #modalContainer .toggleBorrarCarrito:hover {
+      body .main-compras #modalContainer .toggleBorrarCarrito:hover {
         transition: 0.4s;
         background-color: white;
         color: gray; }
-  .main-compras .seccionCompras {
-    display: flex;
-    flex-direction: row; }
-    .main-compras .seccionCompras .container {
-      max-width: 10%;
-      display: flex;
-      flex-direction: column; }
-      .main-compras .seccionCompras .container h4 {
-        cursor: pointer; }
-      .main-compras .seccionCompras .container .toggleProductos {
-        display: flex;
-        flex-direction: column; }
-        .main-compras .seccionCompras .container .toggleProductos .aberturasContent {
-          margin-left: 30px;
-          display: flex;
-          flex-direction: column;
-          align-items: center; }
-        .main-compras .seccionCompras .container .toggleProductos .contentColores {
-          margin-left: 30px;
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start; }
-    .main-compras .seccionCompras .filter-product {
-      cursor: pointer;
-      display: flex;
-      justify-content: flex-start;
-      margin: 0;
-      padding: 0; }
-    .main-compras .seccionCompras .toggleAberturas {
-      cursor: pointer;
-      display: flex;
-      justify-content: flex-start; }
-    .main-compras .seccionCompras .toggleColores {
-      margin-left: 10px;
-      padding: 10px;
-      cursor: pointer;
-      display: flex;
-      justify-content: flex-start; }
 
-.product {
+body .seccionCompras {
+  display: flex;
+  flex-direction: row; }
+  body .seccionCompras .container {
+    border-right: solid 1px gray;
+    height: min-content;
+    max-width: 10%;
+    display: flex;
+    flex-direction: column; }
+    body .seccionCompras .container h4 {
+      cursor: pointer; }
+    body .seccionCompras .container .aberturasContent {
+      margin-left: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
+    body .seccionCompras .container .contentColores {
+      margin-left: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start; }
+
+body #filterProduct {
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+  width: 70%;
+  height: min-content;
+  margin: 0;
+  padding: 0; }
+
+body .toggleAberturas {
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-start; }
+
+body .toggleColores {
+  margin-left: 10px;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-start; }
+
+body h3 i .arrow::after {
+  scale: 5;
+  transition: .3s; }
+
+body .product {
   height: 100%;
   display: flex;
   justify-content: flex-end;
   flex-wrap: wrap; }
 
-#compras {
+body #compras {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
   width: 85vw; }
-  #compras .content {
+  body #compras .content {
     width: 23%;
     background-color: white;
     margin: 20px;
@@ -412,21 +587,21 @@ h1 {
     align-items: center;
     flex-direction: column;
     border-radius: 5px; }
-    #compras .content img {
+    body #compras .content img {
       height: 80%;
       width: 60%;
       padding: 20px; }
-    #compras .content .tituloProducto {
+    body #compras .content .tituloProducto {
       width: 100%;
       border-bottom: solid 1px gray;
       border-top: solid 1px gray; }
-    #compras .content .price {
+    body #compras .content .price {
       text-align: center;
       margin: 0;
       padding: 0;
       font-size: 30px;
       font-family: Arial, Helvetica, sans-serif; }
-    #compras .content .botonAgregarAlCarrito {
+    body #compras .content .botonAgregarAlCarrito {
       font-size: 20px;
       width: 50%;
       text-align: center;
@@ -436,7 +611,7 @@ h1 {
       padding: 5px;
       color: white;
       transition: 0.4s ease-out; }
-      #compras .content .botonAgregarAlCarrito:hover {
+      body #compras .content .botonAgregarAlCarrito:hover {
         transition: 0.4s;
         background-color: white;
         color: gray; }

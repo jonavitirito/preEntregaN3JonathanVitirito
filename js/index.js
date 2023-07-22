@@ -1,5 +1,5 @@
 // DOM
-
+const mainCompras = document.querySelector("#mainCompras");
 const toggleFiltrarPuertas = document.querySelector("#filtroPuertas");
 const toggleFiltrarVentanasCorredizas = document.querySelector("#filtroVentanasCorredizas");
 const toggleFiltrarVentanasProyectantes = document.querySelector("#filtroVentanasProyectantes");
@@ -7,8 +7,8 @@ const toggleFiltrarPañoFijo = document.querySelector("#filtroPañoFijo");
 const toggleBlanco = document.querySelector("#blanco");
 const toggleNegro = document.querySelector("#negro");
 const toggleSimilMadera = document.querySelector("#similMadera");
-const toggleFiltrar =
-    document.querySelector(".filter-product");
+
+const filterProduct = document.querySelector("#filterProduct");
 const toggleProduct =
     document.querySelector(".toggleProductos");
 const toggleAberturas =
@@ -24,10 +24,12 @@ const compras = document.querySelector("#compras");
 const toggleFiltrarAberturas = document.querySelector(".filterAberturas");
 const botonCarrito = document.querySelector("#botonCarrito");
 const modalContainer = document.querySelector("#modalContainer");
-const toggleTitle= document.querySelector("h1");
+const toggleTitle = document.querySelector("h1");
+const cantidadCarrito = document.querySelector("#cantidadCarrito");
 
 // eventos
-toggleFiltrar.addEventListener("click", () => {
+
+filterProduct.addEventListener("click", () => {
     toggleProduct.toggleAttribute("hidden");
 });
 toggleAberturas.addEventListener("click", () => {
@@ -38,8 +40,8 @@ toggleColores.addEventListener("click", () => {
 });
 
 
-toggleTitle.addEventListener("click", ()=>{
-    compras.innerHTML="";
+toggleTitle.addEventListener("click", () => {
+    compras.innerHTML = "";
     mostrarArticulos();
 })
 
@@ -89,6 +91,7 @@ arrayProductos.push(ventanaPañoFijo2);
 const ventanaPañoFijo3 = new producto(12, "Ventana paño fijo", 58300.00, "Simil madera", "https://teknal.casa/wp-content/uploads/2018/10/simil-madera.jpg", 1);
 arrayProductos.push(ventanaPañoFijo3);
 
+
 function filtrarProductosPorColor(color) {
     compras.innerHTML = "";
     const productoFiltrado = arrayProductos.filter(producto => producto.color === color);
@@ -133,11 +136,17 @@ function filtrarProductosPorNombre(tipoDeProducto) {
         toggleAgregarCarrito.addEventListener("click", () => {
 
             arrayCarrito.push(producto);
-
             localStorage.setItem("carrito", JSON.stringify(arrayCarrito));
             agregarProducto();
-        });
-    });
+        }
+
+
+
+
+
+        )
+    }
+    )
 }
 
 toggleFiltrarPuertas.addEventListener("click", function () {
@@ -183,16 +192,30 @@ const mostrarArticulos = () => {
         toggleAgregarCarrito.innerText = "Agregar al Carrito";
         toggleAgregarCarrito.className = "botonAgregarAlCarrito";
         content.append(toggleAgregarCarrito);
+
         toggleAgregarCarrito.addEventListener("click", () => {
+            const repetir = arrayCarrito.some((repetirProducto) => repetirProducto.id === producto.id);
+            if (repetir) {
+                arrayCarrito.map((prod) => {
+                    if (prod.id === producto.id) {
+                        prod.cantidad++;
+                    }
+                });
 
-            arrayCarrito.push(producto);
+                agregarProducto(producto.id);
+                carritoContador();
+                saveLocal();
+            } else {
+                arrayCarrito.push(producto);
+                carritoContador();
+                agregarProducto();
+                saveLocal();
+            }
+        }
 
-            localStorage.setItem("carrito", JSON.stringify(arrayCarrito));
-            agregarProducto();
-
-        });
-
+        )
     });
+
 }
 
 mostrarArticulos();
@@ -204,13 +227,13 @@ const mostrarCarrito = () => {
     const modalHeader = document.createElement("div");
     modalHeader.className = "modal_header";
     modalHeader.innerHTML = `
-    <h1 class="modal_header_titulo">Carrito</h1>
+    <h1 class="modal_header_titulo"><i class="fa-solid fa-cart-shopping fa-lg" style="color: #000000;"></i></h1>
     
     `
     modalContainer.append(modalHeader);
     const modalButton = document.createElement("h1");
     modalButton.className = "modalButton";
-    modalButton.innerText = "x";
+    modalButton.innerHTML = `<i class="fa-solid fa-arrow-right-from-bracket fa-sm" style="color: #000000;"></i>`;
     modalHeader.append(modalButton);
     modalButton.addEventListener("click", () => {
         modalContainer.style.display = "none";
@@ -225,10 +248,26 @@ const mostrarCarrito = () => {
             <img src="${producto.img}" alt="">
                 <h3 class="tituloProducto">${producto.tipoDeProducto} ${producto.color}</h3>
                 <p class="price">$${producto.precio}</p>
+                <div class="restar"><i class="fa-sharp fa-solid fa-caret-down fa-lg" style="color: #e6e6e6;"></i></div>
                 <p>Cantidad: ${producto.cantidad}</p>
+                <div class="sumar"><i class="fa-sharp fa-solid fa-sort-up fa-lg" style="color: #e6e6e6;"></i></div>
+                <p>Total:$ ${producto.cantidad * producto.precio}</p>
                 
                 
                 `;
+        let restar = carritoContent.querySelector(".restar");
+        let sumar = carritoContent.querySelector(".sumar");
+
+        restar.addEventListener("click", () => {
+            if (producto.cantidad !== 1) {
+                producto.cantidad--
+                mostrarCarrito();
+            }
+        });
+        sumar.addEventListener("click", () => {
+            producto.cantidad++
+            mostrarCarrito();
+        })
 
         modalContainer.append(carritoContent);
 
@@ -237,9 +276,11 @@ const mostrarCarrito = () => {
         borrarCarrito.innerText = "Borrar producto";
         carritoContent.appendChild(borrarCarrito);
 
+
+
         borrarCarrito.addEventListener("click", () => {
             eliminarProducto(producto.id);
-            mostrarCarrito();
+
         });
 
     })
@@ -249,18 +290,138 @@ const mostrarCarrito = () => {
 
     const total = arrayCarrito.reduce((acc, el) => acc + el.precio * el.cantidad, 0);
 
-    const totalAComprar = document.createElement("div");
-    totalAComprar.className = "totalContent";
-    totalAComprar.innerHTML = `Total a pagar:$${total}`;
-    modalContainer.append(totalAComprar);
+    const footerModal = document.createElement("div");
+    footerModal.className = "footerModal";
+    footerModal.innerHTML = `<p class="totalContent">Total a pagar : $${total}</p>
+ `;
+    modalContainer.append(footerModal);
+    const toggleFinalizarCompra = document.createElement("button");
+    toggleFinalizarCompra.id = "finalizarCompra";
+    toggleFinalizarCompra.className = "finalizar-compra";
+    toggleFinalizarCompra.innerText = "Finalizar compra";
+    footerModal.append(toggleFinalizarCompra);
+
+    toggleFinalizarCompra.addEventListener("click", () => {
+        mainCompras.innerHTML = `<h1> Detalles de tu compra </h1>`;
+
+        const divCompletarDatos = document.createElement("div");
+        divCompletarDatos.className = "mainCompletarDatos";
+        mainCompras.append(divCompletarDatos);
+
+        const completarDatos = document.createElement("div");
+        completarDatos.className = "completar-datos";
+        completarDatos.innerHTML = `
 
 
+<form class="concretar-compra" action="#" method="get">
+<input type="text" name="Nombre completo" placeholder="Nombre como figura en la tarjeta">
+<input type="text" name="Numero de tarjeta" placeholder="Numero de tarjeta">
+<input type="password" name="Clave de seguridad" placeholder="Clave de seguridad">
+<input type="email" name="Email" placeholder="Email">
+<input type="tel" name="Teléfono" placeholder="Teléfono">
+
+<select class="cuotas-opciones" name="Cuotas de:" >
+<option value="1 cuota">1 cuota sin interés de: $${total}</option>
+          <option  value="3 cuotas">3 cuotas sin interés de: $${total / 3}</option>
+          <option  value="6 cuotas">6 cuotas sin interés de: $${total / 6}</option>
+          <option  value="9 cuotas">9 cuotas con 5% de interés de: $${(total + (total * (5 / 100))) / 9} ($${total * (5 / 100) + total})</option>
+          <option  value="12 cuotas">12 cuotas con 10% de interés de: $${(total + (total * (10 / 100))) / 12} ($${total * (10 / 100) + total}) </option>
+       </select>
+
+    <h2 class="total">Total a pagar es: $${total}</h2>
+
+<button class="boton-concretar-compra" id="botonConcretarCompra">Comprar</button>
+
+</form>
+
+
+`
+divCompletarDatos.append(completarDatos);
+
+arrayCarrito.forEach((producto) => {
+            let carritoContenido = document.createElement("div");
+            carritoContenido.className = "carritoContent";
+            carritoContenido.innerHTML =
+                `
+            <img src="${producto.img}" alt="">
+                <h3 class="tituloProducto">${producto.tipoDeProducto} ${producto.color}</h3>
+                <p class="price">$${producto.precio}</p>
+                <p>Cantidad: ${producto.cantidad}</p>
+                <p>Total: $${producto.cantidad * producto.precio}</p>
+                
+                `;
+
+            divCompletarDatos.append(carritoContenido);
+
+
+            
+        })   
+ const botonComprar=document.getElementById("botonConcretarCompra");
+botonComprar.addEventListener("click", ()=>{
+    const nombreCompleto = document.querySelector("input[name='Nombre completo']").value;
+    const numeroTarjeta = document.querySelector("input[name='Numero de tarjeta']").value;
+    const claveSeguridad = document.querySelector("input[name='Clave de seguridad']").value;
+    const email = document.querySelector("input[name='Email']").value;
+    const telefono = document.querySelector("input[name='Teléfono']").value;
+    const cuotas = document.querySelector(".cuotas-opciones").value;
+ if(!nombreCompleto || !numeroTarjeta || !claveSeguridad || !email || !telefono || !cuotas){
+    const datosIncompletos=document.createElement("div");
+    datosIncompletos.className="datos-incompletos";
+    datosIncompletos.innerHTML=`<div class="datos-incompletos-container"><h2>Complete con sus datos para concretar la compra </h2>
+    <button class="cerrar-ventana" id="cerrarVentana">Cerrar ventana</button>
+    </div>`
+    const buttonCerrarVentana=datosIncompletos.querySelector("#cerrarVentana");
+  buttonCerrarVentana.addEventListener("click",()=>{
+    datosIncompletos.style.display="none";
+  });
+    mainCompras.append(datosIncompletos);
+    return
+ }
+
+
+       const compraExitosa=document.createElement("div");
+        compraExitosa.className="compra-exitosa";
+        compraExitosa.innerHTML=`<div class="compra-exitosa-container">
+        <h1>Gracias por comprar en AlumTech!</h1>
+        <p>Su numero de seguimiento es: N°${1}</p>
+      <button class="cerrar-modal" id="botonCerrarModal"> Volver a la Tienda </button>
+        </div>
+        `;
+        
+    mainCompras.append(compraExitosa);
+    
+
+  const buttonCerrarModal=document.querySelector("#botonCerrarModal");
+buttonCerrarModal.addEventListener("click", ()=>{ 
+    
+    location.href="tienda.html";
+localStorage.removeItem("carrito");
+       modalContainer.innerHTML="";
+
+}) 
+     
+      
+
+
+
+       
+    
+    
+})
+
+})
+    
+
+    
 
 
 
 
 }
+
+
 botonCarrito.addEventListener("click", mostrarCarrito);
+
 
 
 
@@ -281,8 +442,25 @@ const eliminarProducto = (id) => {
         return arrayCarritoId !== foundId
 
     });
-    localStorage.setItem("carrito", JSON.stringify(arrayCarrito));
+    carritoContador();
+    saveLocal();
+    mostrarCarrito();
 
+}
+const carritoContador = () => {
+    cantidadCarrito.style.display = "block";
+
+    const carritoLength = arrayCarrito.length;
+
+    localStorage.setItem("carritoLength", JSON.stringify(carritoLength));
+
+    cantidadCarrito.innerHTML = JSON.parse(localStorage.getItem("carritoLength"));
+}
+
+const saveLocal = () => {
+    localStorage.setItem("carrito", JSON.stringify(arrayCarrito));
 }
 
 
+
+carritoContador();
