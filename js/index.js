@@ -21,7 +21,6 @@ const contentAberturas =
 const contentColores =
     document.querySelector(".contentColores");
 const compras = document.querySelector("#compras");
-const toggleFiltrarAberturas = document.querySelector(".filterAberturas");
 const botonCarrito = document.querySelector("#botonCarrito");
 const modalContainer = document.querySelector("#modalContainer");
 const toggleTitle = document.querySelector("h1");
@@ -47,25 +46,15 @@ toggleTitle.addEventListener("click", () => {
 
 // elaborando el carrito
 
-// productos
-class producto {
-    constructor(id, tipoDeProducto, precio, color, img, cantidad) {
-        this.id = id;
-        this.tipoDeProducto = tipoDeProducto;
-        this.precio = precio;
-        this.color = color;
-        this.img = img;
-        this.cantidad = cantidad;
 
-    }
-}
+import { producto } from "./clases.js";
 
 let arrayCarrito = JSON.parse(localStorage.getItem("carrito"))
 if (arrayCarrito === null) {
     arrayCarrito = []
 }
 
-let arrayProductos = [];
+export let arrayProductos = [];
 const puerta1 = new producto(1, "Puerta de rebatir", 105178.00, "Negro mate", "https://http2.mlstatic.com/D_NQ_NP_919280-MLA49568721252_042022-O.webp", 1);
 arrayProductos.push(puerta1);
 const puerta2 = new producto(2, "Puerta de rebatir", 95564.00, "Blanco brillante", "https://http2.mlstatic.com/D_NQ_NP_910890-MLA54434412001_032023-O.webp", 1);
@@ -92,62 +81,10 @@ const ventanaPañoFijo3 = new producto(12, "Ventana paño fijo", 58300.00, "Simi
 arrayProductos.push(ventanaPañoFijo3);
 
 
-function filtrarProductosPorColor(color) {
-    compras.innerHTML = "";
-    const productoFiltrado = arrayProductos.filter(producto => producto.color === color);
-    productoFiltrado.forEach((producto) => {
-        const content = document.createElement("div");
-        content.className = "content";
-        content.innerHTML = `<img src="${producto.img}" alt="">
-    <h3 class="tituloProducto">${producto.tipoDeProducto} ${producto.color}</h3>
-    <p class="price">$${producto.precio}</p>
-    
-    `;
-        compras.append(content);
-        let toggleAgregarCarrito = document.createElement("button");
-        toggleAgregarCarrito.innerText = "Agregar al Carrito";
-        toggleAgregarCarrito.className = "botonAgregarAlCarrito";
-        content.append(toggleAgregarCarrito);
-        toggleAgregarCarrito.addEventListener("click", () => {
-
-            arrayCarrito.push(producto);
-
-            localStorage.setItem("carrito", JSON.stringify(arrayCarrito));
-            agregarProducto();
-        });
-    });
-}
-function filtrarProductosPorNombre(tipoDeProducto) {
-    compras.innerHTML = "";
-    const productoFiltrado = arrayProductos.filter(producto => producto.tipoDeProducto === tipoDeProducto);
-    productoFiltrado.forEach((producto) => {
-        const content = document.createElement("div");
-        content.className = "content";
-        content.innerHTML = `<img src="${producto.img}" alt="">
-        <h3 class="tituloProducto">${producto.tipoDeProducto} ${producto.color}</h3>
-        <p class="price">$${producto.precio}</p>
-        
-        `;
-        compras.append(content);
-        let toggleAgregarCarrito = document.createElement("button");
-        toggleAgregarCarrito.innerText = "Agregar al Carrito";
-        toggleAgregarCarrito.className = "botonAgregarAlCarrito";
-        content.append(toggleAgregarCarrito);
-        toggleAgregarCarrito.addEventListener("click", () => {
-
-            arrayCarrito.push(producto);
-            localStorage.setItem("carrito", JSON.stringify(arrayCarrito));
-            agregarProducto();
-        }
 
 
-
-
-
-        )
-    }
-    )
-}
+import { filtrarProductosPorColor } from "./funcionesFiltro.js";
+import { filtrarProductosPorNombre } from "./funcionesFiltro.js";
 
 toggleFiltrarPuertas.addEventListener("click", function () {
     filtrarProductosPorNombre("Puerta de rebatir");
@@ -217,6 +154,7 @@ const mostrarArticulos = () => {
     });
 
 }
+
 
 mostrarArticulos();
 
@@ -336,9 +274,9 @@ const mostrarCarrito = () => {
 
 
 `
-divCompletarDatos.append(completarDatos);
+        divCompletarDatos.append(completarDatos);
 
-arrayCarrito.forEach((producto) => {
+        arrayCarrito.forEach((producto) => {
             let carritoContenido = document.createElement("div");
             carritoContenido.className = "carritoContent";
             carritoContenido.innerHTML =
@@ -353,78 +291,83 @@ arrayCarrito.forEach((producto) => {
 
             divCompletarDatos.append(carritoContenido);
 
-
-            
-        })   
- const botonComprar=document.getElementById("botonConcretarCompra");
-botonComprar.addEventListener("click", ()=>{
-    const nombreCompleto = document.querySelector("input[name='Nombre completo']").value;
-    const numeroTarjeta = document.querySelector("input[name='Numero de tarjeta']").value;
-    const claveSeguridad = document.querySelector("input[name='Clave de seguridad']").value;
-    const email = document.querySelector("input[name='Email']").value;
-    const telefono = document.querySelector("input[name='Teléfono']").value;
-    const cuotas = document.querySelector(".cuotas-opciones").value;
- if(!nombreCompleto || !numeroTarjeta || !claveSeguridad || !email || !telefono || !cuotas){
-    const datosIncompletos=document.createElement("div");
-    datosIncompletos.className="datos-incompletos";
-    datosIncompletos.innerHTML=`<div class="datos-incompletos-container"><h2>Complete con sus datos para concretar la compra </h2>
-    <button class="cerrar-ventana" id="cerrarVentana">Cerrar ventana</button>
-    </div>`
-    const buttonCerrarVentana=datosIncompletos.querySelector("#cerrarVentana");
-  buttonCerrarVentana.addEventListener("click",()=>{
-    datosIncompletos.style.display="none";
-  });
-    mainCompras.append(datosIncompletos);
-    return
- }
+        })
 
 
-       const compraExitosa=document.createElement("div");
-        compraExitosa.className="compra-exitosa";
-        compraExitosa.innerHTML=`<div class="compra-exitosa-container">
-        <h1>Gracias por comprar en AlumTech!</h1>
-        <p>Su numero de seguimiento es: N°${1}</p>
-      <button class="cerrar-modal" id="botonCerrarModal"> Volver a la Tienda </button>
-        </div>
-        `;
+        const botonComprar = document.getElementById("botonConcretarCompra");
+        botonComprar.addEventListener("click", () => {
+
+            const nombreCompleto = document.querySelector("input[name='Nombre completo']").value;
+            const numeroTarjeta = document.querySelector("input[name='Numero de tarjeta']").value;
+            const claveSeguridad = document.querySelector("input[name='Clave de seguridad']").value;
+            const email = document.querySelector("input[name='Email']").value;
+            const telefono = document.querySelector("input[name='Teléfono']").value;
+            const cuotas = document.querySelector(".cuotas-opciones").value;
+            if (!nombreCompleto || !numeroTarjeta || !claveSeguridad || !email || !telefono || !cuotas) {   
+    let timerInterval
+    Swal.fire({
+      title: 'Completa tus datos para confirmar la compra',
+      timer: 1500,
+      customClass: {
+        container: 'datos-incompletos',
+        popup: 'datos-incompletos-container',         
         
-    mainCompras.append(compraExitosa);
+      },
+      didOpen: () => {
+        Swal.showLoading()
+        const b = Swal.getHtmlContainer().querySelector('b')
+        timerInterval = setInterval(() => {
+          b.textContent = Swal.getTimerLeft()
+        }, 100)
+      },
+      willClose: () => {
+        clearInterval(timerInterval)
+      }
+    }).then((result) => {
+      /* Read more about handling dismissals below */
+      if (result.dismiss === Swal.DismissReason.timer) {
+        console.log('I was closed by the timer')
+      }
+    })
+
+                return
+            }
+            let timerInterval
+            Swal.fire({
+                title: 'Gracias por comprar en AlumTech!',
+                html: 'Redirigiendo a la tienda en <b></b> milisegundos.',
+                timer: 2000,
+                timerProgressBar: false,
+                customClass: {
+                    container: 'datos-incompletos',
+                    popup: 'datos-incompletos-container',                    
+                  },
+                didOpen: () => {
+                    Swal.showLoading()
+                    const b = Swal.getHtmlContainer().querySelector('b')
+                    timerInterval = setInterval(() => {
+                        b.textContent = Swal.getTimerLeft()
+                    }, 100)
+                },
+                willClose: () => {
+                    clearInterval(timerInterval)
+                    location.href = "tienda.html";
+                    localStorage.removeItem("carrito");
+                }
+            }).then((result) => {
+                /* Read more about handling dismissals below */
+                if (result.dismiss === Swal.DismissReason.timer) {
+                    console.log('I was closed by the timer')
+                }
+            })
+        })
+
+    })
     
-
-  const buttonCerrarModal=document.querySelector("#botonCerrarModal");
-buttonCerrarModal.addEventListener("click", ()=>{ 
-    
-    location.href="tienda.html";
-localStorage.removeItem("carrito");
-       modalContainer.innerHTML="";
-
-}) 
-     
-      
-
-
-
-       
-    
-    
-})
-
-})
-    
-
-    
-
-
-
-
 }
 
 
 botonCarrito.addEventListener("click", mostrarCarrito);
-
-
-
-
 
 
 const agregarProducto = () => {
@@ -435,6 +378,7 @@ const agregarProducto = () => {
     mostrarCarrito();
 
 }
+
 
 const eliminarProducto = (id) => {
     const foundId = arrayCarrito.find((el) => el.id == id);
@@ -461,6 +405,21 @@ const saveLocal = () => {
     localStorage.setItem("carrito", JSON.stringify(arrayCarrito));
 }
 
+fetch("https://api.bluelytics.com.ar/v2/latest")
+    .then((response) => { return response.json() })
+    .then((data) => {
+        const valorDolar = document.createElement("div");
+        valorDolar.className = "valor-dolar";
+        valorDolar.innerHTML = `<h3>Dolar oficial : $${data.oficial.value_sell}</h3>
+    <p>Nuestros precios están sujetos al dolar BNA</p>
+    `
+        mainCompras.append(valorDolar);
+
+    })
+
+
 
 
 carritoContador();
+
+

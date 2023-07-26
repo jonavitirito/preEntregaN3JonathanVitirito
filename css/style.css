@@ -340,6 +340,16 @@ body .main-compras {
   color: #2a2a2a; }
   body .main-compras h1 {
     cursor: pointer; }
+  body .main-compras .valor-dolar {
+    border-radius: 5px;
+    height: 10%;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    color: rgba(255, 255, 255, 0.891);
+    margin: 20px;
+    padding: 10px;
+    background-color: #505050bd; }
   body .main-compras .datos-incompletos {
     position: fixed;
     top: 0;
@@ -615,6 +625,34 @@ body #compras {
         transition: 0.4s;
         background-color: white;
         color: gray; }
+
+.datos-incompletos-container {
+  width: 90%;
+  max-width: 600px;
+  max-height: 90%;
+  background-color: #eeeec6;
+  border-radius: 6px;
+  padding: 3em 2.5em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  place-items: center;
+  margin: auto; }
+
+.cerrar-ventana {
+  width: 120px;
+  height: 35px;
+  color: gray;
+  background-color: #505050;
+  text-align: center;
+  border-radius: 5px;
+  border: solid gray 2px;
+  transition: 0.4s ease-out; }
+  .cerrar-ventana:hover {
+    transition: 0.4s;
+    background-color: white;
+    border-color: black;
+    color: black; }
 
 /* mobile last */
 @media (max-width: 500px) {
